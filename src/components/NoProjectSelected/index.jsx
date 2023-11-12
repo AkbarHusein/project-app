@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import noProject from "../../assets/no-projects.png";
 import Button from "../Button";
 
-const NoProjectSelected = () => {
+const NoProjectSelected = ({ addProject }) => {
   return (
     <div className="mt-24 text-center w-2/3">
       <img
@@ -17,10 +18,16 @@ const NoProjectSelected = () => {
         Select a project or get started a new project!
       </p>
       <p className="mt-8">
-        <Button type="button">Create New Project</Button>
+        <Button type="button" onClick={addProject}>
+          Create New Project
+        </Button>
       </p>
     </div>
   );
+};
+
+NoProjectSelected.propTypes = {
+  addProject: PropTypes.func.isRequired,
 };
 
 export default NoProjectSelected;
