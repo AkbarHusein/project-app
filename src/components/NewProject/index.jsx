@@ -11,19 +11,19 @@ const NewProject = ({ onAdd, onCancel }) => {
   const dueDate = useRef();
 
   const saveHandler = () => {
-    const titleValue = title.current.value;
-    const descriptionValue = description.current.value;
-    const dueDateValue = dueDate.current.value;
+    const title_ = title.current.value;
+    const description_ = description.current.value;
+    const dueDate_ = dueDate.current.value;
 
     if (
-      titleValue.trim() === "" ||
-      descriptionValue.trim() === "" ||
-      dueDateValue.trim() === ""
+      title_.trim() === "" ||
+      description_.trim() === "" ||
+      dueDate_.trim() === ""
     ) {
       modal.current.open();
       return;
     }
-    onAdd(project);
+    onAdd({ title_, description_, dueDate_ });
   };
 
   return (
