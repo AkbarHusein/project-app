@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "../Button";
 
-const SelectedProject = ({ project }) => {
+const SelectedProject = ({ project, onDelete }) => {
   const formattedDate = new Date(project.dueDate_).toLocaleDateString("id-ID", {
     year: "numeric",
     month: "short",
@@ -16,7 +16,11 @@ const SelectedProject = ({ project }) => {
           <h1 className="text-3xl font-bold text-stone-600 mb-2">
             {project.title_}
           </h1>
-          <Button className="text-stone-600 hover:text-stone-950" type="button">
+          <Button
+            className="text-stone-600 hover:text-stone-950"
+            type="button"
+            onClick={onDelete}
+          >
             Detele
           </Button>
         </div>
@@ -32,6 +36,7 @@ const SelectedProject = ({ project }) => {
 
 SelectedProject.propTypes = {
   project: PropTypes.object,
+  onDelete: PropTypes.func,
 };
 
 export default SelectedProject;
